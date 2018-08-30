@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <!--header-->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand"  href='/admin/index'>Assigment</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href='/admin/index'>Book</a></li>
+            <li><a href='/admin/rack'>Rack</a></li>
+            <li><a href='/admin/logout'>Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<!--main body-->
+<div class="container">
+    <button class="btn btn-default" style="float: right" data-toggle="modal" onclick="add_book()">Add Book</button>
+    <div class="" style="box-shadow: 0 0 3px rgba(0,0,0,0.12), 0 1px 10px rgba(0,0,0,0.24); border-radius: 10px; margin-top: 50px">
+        <div class="col-md-12 col-sm-12" style="padding: 0px">
+            <input type="text" class="form-control" id="search_string" placeholder="Search Books..."  style="float: left; width: 100%">
+            <button class="btn btn-default" style="float: right; margin-top: -34px" onclick="search_go()">Search</button>
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+            </tr>
+            {% if type == 1 %}
+                {% for book in books %}
+                <tr>
+                    <td>{{  book.title}}</td>
+                    <td>{{  book.author_name}}</td>
+                    <td>{{  book.publish_year }}</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+
+            {% if type == 0 %}
+                {% for book in books %}
+                <tr>
+                    <td>{{  book.book.title}}</td>
+                    <td>{{  book.book.author_name}}</td>
+                    <td>{{  book.book.publish_year }}</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+</div>
+
+<script>
+    function add_book() {
+        window.location.href="/admin/add_book"
+
+    }
+    function search_go() {
+        var search_string  = $.trim($("#search_string").val());
+        console.log('search_string',search_string);
+        if (search_string != ''){
+                    console.log('search_string',search_string);
+
+          window.location.href = '/admin/index?search_string='+search_string
+        }
+
+}
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <!--header-->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand"  href='/admin/index'>Assigment</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href='/admin/index'>Book</a></li>
+            <li><a href='/admin/rack'>Rack</a></li>
+            <li><a href='/admin/logout'>Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="text-center">
+    <h1>Add Book</h1>
+</div>
+
+<div class="container">
+     <div class=" clearfix">
+                 <form method="post" action="/admin/add_racks"> {% csrf_token %}
+
+
+                 <div class="col-md-12 col-sm-12 col-xs-12">
+                     <label>Title</label>
+                     <input type="text" name="name" class="form-control">
+                 </div>
+                 <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                     <br>
+
+                 <button type="submit" class="btn btn-default" >Submit</button>
+             </div>
+                 </form>
+             </div>
+
+</div>
+
+</body>
+
+<script>
+    function submit_racks() {
+
+
+    }
+</script>
+</html>
